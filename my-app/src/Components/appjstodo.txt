@@ -1,0 +1,33 @@
+function App() {
+  const [inputtask, setinputtask] = useState("");
+
+  const [addtodo, setTodo] = useState([]);
+
+  function hsetinputtask(e) {
+    setinputtask(e.target.value);
+  }
+  function hsetTodo() {
+    if (inputtask !== "") {
+      setTodo((dres) => [...dres, inputtask]);
+      setinputtask("");
+    }
+  }
+  function delTodo(todoIndex){
+    setTodo((prevTodos)=>prevTodos.filter((prevTodos ,prevTodosIndex)=>{
+      return prevTodosIndex !== todoIndex;
+    }))
+  }
+  return (
+    <main>
+      <h1 className="text-center mt-10 font-bold text-white text-[50px] capitalize">
+        To do list
+      </h1>
+      <Firstpart
+        inputval={inputtask}
+        hsetinputtask={hsetinputtask}
+        hsetTodo={hsetTodo}
+      />
+      <Second addtodo={addtodo} delTodo={delTodo} />
+    </main>
+  );
+}
