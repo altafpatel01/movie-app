@@ -45,7 +45,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route
-            path="/"
+            path="/movie-app"
             element={
               <>
               
