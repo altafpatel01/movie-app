@@ -69,7 +69,7 @@ function App() {
               />
             }
           />
-          <Route path="/yes" element={<><About /></> } />
+          <Route path="/about" element={<><About /></> } />
           {/* <Movie /> */}
           {/* <MovieWatchList /> */}
           {/* <Banner /> */}

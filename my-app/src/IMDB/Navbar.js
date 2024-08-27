@@ -7,9 +7,9 @@ function Navbar() {
         <img className='w-[60px] h-[50px]   ' src={Movielogo} alt=''>
         </img>
         <div className='mobile:justify-start mobile:text-xs  mobile:space-x-3 mobile:items-start  flex flex-row space-x-4 '>      
-           <Link  className='text-blue-500 font-bold     mobile:text-[15px]  text-xl hover:translate-y-[-1.5px] ' to='/'>Home</Link>
+           <Link  className='text-blue-500 font-bold     mobile:text-[15px]  text-xl hover:translate-y-[-1.5px] ' to='/movie-app'>Home</Link>
         <Link className='text-blue-500 font-bold text-xl mobile:text-[15px] hover:translate-y-[-1.5px]' to='/watchlist'>Watchlist</Link>
-        <Link className='text-blue-500 font-bold text-xl mobile:text-[15px] hover:translate-y-[-1.5px] pr-2' to='yes'>About</Link>
+        <Link className='text-blue-500 font-bold text-xl mobile:text-[15px] hover:translate-y-[-1.5px] pr-2' to='/about'>About</Link>
         </div>
  
     </div>
