@@ -6,6 +6,7 @@ import Page from "./Page";
 function Movie({ handleWatchList, deleteWatchListMovie, watchlist }) {
   const [movies, setmovie] = useState([]);
   const [pageNo, setPageNo] = useState(1);
+  const [error, setError] = useState(null);
 
   const handlePrev = () => {
     if (pageNo === 1) {
@@ -23,10 +24,16 @@ function Movie({ handleWatchList, deleteWatchListMovie, watchlist }) {
       .get(
         `https://api.themoviedb.org/3/movie/popular?api_key=4b8cb805493142571d04dbf00faf0288&language=en-US&page=${pageNo}`
       )
-      .then(function (res) {
+      .then((res) => {
         setmovie(res.data.results);
+        setError(null); // Clear previous errors on successful data fetch
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', {error});
+        setError(`Failed to fetch movies. Please try again later.`);
       });
   }, [pageNo]);
+
 
   return (
     <div className="w-lvw  ">
@@ -34,6 +41,7 @@ function Movie({ handleWatchList, deleteWatchListMovie, watchlist }) {
         Trending Movies
       </div>
       <div className="flex flex-row flex-wrap px-8  gap-8 justify-center ">
+      {error && <p className="text-red-500">{error}</p>}
         {movies.map((movieobj) => {
           return (
             <MovieCard

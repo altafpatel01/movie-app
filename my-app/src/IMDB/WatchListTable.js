@@ -61,7 +61,7 @@ function WatchListTable({ watchlist,deleteWatchListMovie,search, setWatchList,cu
                       <div
                         style={{backgroundImage:(`url(https://image.tmdb.org/t/p/original/${wm.poster_path})`)} }
                       
-                        className="w-20 h-16 bg-cover"
+                        className="min-w-20 min-h-20 bg-contain bg-yellow-500"
                         alt="movie poster"
                       ></div>
                       <p className="text-center  self-center ">{wm.title}</p>
