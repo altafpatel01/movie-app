@@ -9,7 +9,7 @@ import Navbar from "./IMDB/Navbar";
 import Footers from "./IMDB/Footers";
 
 // import Banner from "./IMDB/Banner";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 // import Page from "./IMDB/Page";
 
 function App() {
@@ -41,11 +41,11 @@ function App() {
 
   return (
     <main>
-      <BrowserRouter>
+      <Router>
       <Navbar />
         <Routes>
           <Route
-            path="/movie-app"
+            path="/"
             element={
               <>
               
@@ -60,7 +60,7 @@ function App() {
             }
           />
           <Route
-            path="/movie-app/watchlist"
+            path="/watchlist"
             element={
               <MovieWatchList
                 watchlist={watchlist}
@@ -69,12 +69,12 @@ function App() {
               />
             }
           />
-          <Route path="/movie-app/about" element={<><About /></> } />
+          <Route path="/about" element={<><About /></> } />
           {/* <Movie /> */}
           {/* <MovieWatchList /> */}
           {/* <Banner /> */}
         </Routes>
-      </BrowserRouter>
+      </Router>
     </main>
   );
 }
