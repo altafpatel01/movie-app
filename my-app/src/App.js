@@ -45,7 +45,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route
-            path="/"
+            path="/movie-app"
             element={
               <>
               
@@ -60,7 +60,7 @@ function App() {
             }
           />
           <Route
-            path="/watchlist"
+            path="/movie-app/watchlist"
             element={
               <MovieWatchList
                 watchlist={watchlist}
@@ -69,7 +69,7 @@ function App() {
               />
             }
           />
-          <Route path="/about" element={<><About /></> } />
+          <Route path="/movie-app/about" element={<><About /></> } />
           {/* <Movie /> */}
           {/* <MovieWatchList /> */}
           {/* <Banner /> */}
