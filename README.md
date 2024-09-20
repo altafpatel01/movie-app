@@ -23,6 +23,14 @@ Make sure you have the following installed:
 - npm (Node package manager)
 - VPN (required for accessing TMDB API data)
 
+
+### Customization
+- **Project URL**: Replace `your-username` with your GitHub username and make sure the repository link is correct.
+- **API Key**: Ensure that users know where to get their TMDB API key and replace the placeholder text accordingly.
+- **Features & Usage**: Modify the features and usage instructions according to the actual functionality of your project.
+
+Feel free to adjust any sections to better fit your project!
+
 ## Getting Started
 
 ### Installation
