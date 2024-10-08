@@ -10,6 +10,8 @@ function MovieCard({
   watchlist
 }) {
 
+  
+
   function doesContain(movieobj) {
     for (let i = 0; i < watchlist.length; i++) {
       if (watchlist[i].id === movieobj.id) {

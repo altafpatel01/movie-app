@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import axios from "axios";
 import Page from "./Page";
+import Loader from "./Loading";
+import ErrorPage from "./ErrorPage";
 
 function Movie({ handleWatchList, deleteWatchListMovie, watchlist }) {
   const [movies, setmovie] = useState([]);
   const [pageNo, setPageNo] = useState(1);
-  const [error, setError] = useState(null);
-
+  const [error, setError] = useState(false);
+  const[isLoading, setisLoading]= useState(false)
+  
   const handlePrev = () => {
     if (pageNo === 1) {
       setPageNo(1);
@@ -20,23 +23,30 @@ function Movie({ handleWatchList, deleteWatchListMovie, watchlist }) {
   };
 
   useEffect(() => {
+    setisLoading(true)
     axios
       .get(
         `https://api.themoviedb.org/3/movie/popular?api_key=4b8cb805493142571d04dbf00faf0288&language=en-US&page=${pageNo}`
       )
       .then((res) => {
         setmovie(res.data.results);
+        setisLoading(false)
         setError(null); // Clear previous errors on successful data fetch
       })
       .catch((error) => {
         console.error('Error fetching data:', {error});
-        setError(`Failed to fetch movies. Please try again later.`);
+        setmovie([])
+        setisLoading(false)
+        setError(true);
       });
   }, [pageNo]);
 
 
   return (
-    <div className="w-lvw  ">
+   <Fragment>
+    {
+      isLoading?<Loader/>:error?<ErrorPage/>:<>
+       <div className="w-lvw  ">
       <div className="text-2xl text-center font-bold mt-20 mb-10 px-16">
         Trending Movies
       </div>
@@ -58,7 +68,9 @@ function Movie({ handleWatchList, deleteWatchListMovie, watchlist }) {
         })}
         <Page handleNext={handleNext} handlePrev={handlePrev} page={pageNo} />
       </div>
-    </div>
+    </div></>
+    }
+   </Fragment>
   );
 }
 
